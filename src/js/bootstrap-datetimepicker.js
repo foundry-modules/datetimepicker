@@ -26,31 +26,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-; (function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD is used - Register as an anonymous module.
-        define(['jquery', 'moment'], factory);
-    } else {
-        // AMD is not used - Attempt to fetch dependencies from scope.
-        if (!jQuery) {
-            throw 'bootstrap-datetimepicker requires jQuery to be loaded first';
-        } else if (!moment) {
-            throw 'bootstrap-datetimepicker requires moment.js to be loaded first';
-        } else {
-            factory(jQuery, moment);
-        }
-    }
-}
-
-(function ($, moment) {
-    if (typeof moment === 'undefined') {
-        alert("momentjs is requried");
-        throw new Error('momentjs is required');
-    };
 
     var dpgId = 0,
 
-    pMoment = moment,
+    pMoment = $.moment,
 
 // ReSharper disable once InconsistentNaming
     DateTimePicker = function (element, options) {
@@ -1171,10 +1150,9 @@ THE SOFTWARE.
         init();
     };
 
-    $.fn.datetimepicker = function (options) {
+    $.fn._datetimepicker = function (options) {
         return this.each(function () {
             var $this = $(this), data = $this.data('DateTimePicker');
             if (!data) $this.data('DateTimePicker', new DateTimePicker(this, options));
         });
     };
-}));
