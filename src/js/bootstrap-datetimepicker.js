@@ -1081,6 +1081,7 @@ THE SOFTWARE.
                     return;
             }
             picker.widget.hide();
+            picker.widget.removeClass("picker-open");
             picker.viewMode = picker.startViewMode;
             showMode();
             picker.element.trigger({
