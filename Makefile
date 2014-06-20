@@ -1,4 +1,4 @@
-all: modularize-script minify-script copy-style
+all: modularize-script minify-script copy-style copy-variables
 
 include ../../build/modules.mk
 
@@ -12,3 +12,6 @@ CSS_FILE_SUFFIX_UNCOMPRESSED = .less
 
 SOURCE_SCRIPT_FOLDER = src/js
 SOURCE_SCRIPT_FILE_PREFIX = bootstrap-
+
+copy-variables:
+	cp src/less/variables.less ${TARGET_STYLE_FOLDER}/variables.less
