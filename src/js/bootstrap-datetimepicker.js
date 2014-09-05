@@ -899,15 +899,15 @@ THE SOFTWARE.
                        '<div class="col-sm-6 timepicker">' + tpGlobal.getTemplate() + '</div>' +
                      '</div>';
                 } else {
-                    ret += '<div class="list-unstyled">' +
-                        '<div' + (picker.options.collapse ? ' class="collapse in"' : '') + '>' +
+                    ret += '<ul class="list-unstyled">' +
+                        '<li' + (picker.options.collapse ? ' class="collapse in"' : '') + '>' +
                             '<div class="datepicker">' + dpGlobal.template + '</div>' +
-                        '</div>' +
-                        '<div class="picker-switch accordion-toggle"><a class="btn" style="width:100%"><span class="' + picker.options.icons.time + '"></span></a></div>' +
-                        '<div' + (picker.options.collapse ? ' class="collapse"' : '') + '>' +
+                        '</li>' +
+                        '<li class="picker-switch accordion-toggle"><a class="btn" style="width:100%"><span class="' + picker.options.icons.time + '"></span></a></li>' +
+                        '<li' + (picker.options.collapse ? ' class="collapse"' : '') + '>' +
                             '<div class="timepicker">' + tpGlobal.getTemplate() + '</div>' +
-                        '</div>' +
-                   '</div>';
+                        '</li>' +
+                   '</ul>';
                 }
                 ret += '</div>';
                 return ret;
