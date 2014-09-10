@@ -903,11 +903,21 @@ THE SOFTWARE.
                         '<li' + (picker.options.collapse ? ' class="collapse in"' : '') + '>' +
                             '<div class="datepicker">' + dpGlobal.template + '</div>' +
                         '</li>' +
-                        '<li class="picker-switch accordion-toggle"><a class="btn" style="width:100%"><span class="' + picker.options.icons.time + '"></span></a></li>' +
+                        '<li class="picker-switch accordion-toggle"><a class="btn btn-primary" style="width:100%"><span class="' + picker.options.icons.time + '"></span></a></li>' +
                         '<li' + (picker.options.collapse ? ' class="collapse"' : '') + '>' +
                             '<div class="timepicker">' + tpGlobal.getTemplate() + '</div>' +
                         '</li>' +
                    '</ul>';
+
+                   // Reserved in case if topdown layout is needed
+                   //  ret += '<ul class="list-unstyled">' +
+                   //      '<li>' +
+                   //          '<div class="datepicker">' + dpGlobal.template + '</div>' +
+                   //      '</li>' +
+                   //      '<li>' +
+                   //          '<div class="timepicker">' + tpGlobal.getTemplate() + '</div>' +
+                   //      '</li>' +
+                   // '</ul>';
                 }
                 ret += '</div>';
                 return ret;
