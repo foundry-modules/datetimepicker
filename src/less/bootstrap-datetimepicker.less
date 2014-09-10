@@ -130,6 +130,8 @@
         width: 20px;
         height: 20px;
         border-radius: 4px;
+        background-color: @datetimepicker-bg;
+        color: @datetimepicker-color;
     }
 
     td {
@@ -272,7 +274,15 @@
 }
 
 
+@media (max-width: 480px) {
 
+    &.bootstrap-datetimepicker-widget {
+        position: fixed !important;
+        left: 10px !important;
+        right: 10px !important;
+        top: 15px !important;
+        bottom: 15px !important;
+        width: 92% !important;
+    }
 
-
-
+}
