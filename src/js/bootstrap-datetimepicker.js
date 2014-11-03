@@ -53,7 +53,8 @@ THE SOFTWARE.
             direction: "auto",
             sideBySide: false,
             daysOfWeekDisabled: false,
-            component: ""
+            component: "",
+            dow: 0
         },
 
         icons = {
@@ -84,6 +85,10 @@ THE SOFTWARE.
             picker.unset = false;
             picker.isInput = picker.element.is('input');
             picker.component = false;
+
+            // jasonrey@stackideas.com
+            // Set the start of week
+            pMoment()._lang._week.dow = picker.options.dow;
 
             if (picker.element.hasClass('input-group')) {
                 if (picker.element.find('.datepickerbutton').size() == 0) {//in case there is more then one 'input-group-addon' Issue #48
@@ -310,19 +315,29 @@ THE SOFTWARE.
         fillDow = function () {
             pMoment.lang(picker.options.language);
             var html = $('<tr>'), weekdaysMin = pMoment.weekdaysMin(), i;
-            if (pMoment()._lang._week.dow == 0) { // starts on Sunday
-                for (i = 0; i < 7; i++) {
-                    html.append('<th class="dow">' + weekdaysMin[i] + '</th>');
-                }
-            } else {
-                for (i = 1; i < 8; i++) {
-                    if (i == 7) {
-                        html.append('<th class="dow">' + weekdaysMin[0] + '</th>');
-                    } else {
-                        html.append('<th class="dow">' + weekdaysMin[i] + '</th>');
-                    }
-                }
-            }
+
+            // jasonrey@stackideas.com
+            // Reconstruct weekdays structure by start day of the week
+            var spliced = weekdaysMin.splice(pMoment()._lang._week.dow);
+            weekdaysMin = spliced.concat(weekdaysMin);
+
+            $.each(weekdaysMin, function(i, w) {
+                html.append('<th class="dow">' + w + '</th>');
+            });
+
+            // if (pMoment()._lang._week.dow == 0) { // starts on Sunday
+            //     for (i = 0; i < 7; i++) {
+            //         html.append('<th class="dow">' + weekdaysMin[i] + '</th>');
+            //     }
+            // } else {
+            //     for (i = 1; i < 8; i++) {
+            //         if (i == 7) {
+            //             html.append('<th class="dow">' + weekdaysMin[0] + '</th>');
+            //         } else {
+            //             html.append('<th class="dow">' + weekdaysMin[i] + '</th>');
+            //         }
+            //     }
+            // }
             picker.widget.find('.datepicker-days thead').append(html);
         },
 
