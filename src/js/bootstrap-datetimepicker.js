@@ -907,7 +907,7 @@ THE SOFTWARE.
         getTemplate = function () {
             if (picker.options.pickDate && picker.options.pickTime) {
                 var ret = '';
-                ret = '<div id="fd" class="bootstrap-datetimepicker-widget' + (picker.options.sideBySide ? ' timepicker-sbs' : '') + ' ' + (picker.options.component) + '" style="z-index:9999 !important;">';
+                ret = '<div id="fd" class="bootstrap-datetimepicker-widget' + (picker.options.sideBySide ? ' timepicker-sbs' : '') + ' ' + (picker.options.component) + '">';
                 if (picker.options.sideBySide) {
                     ret += '<div class="row">' +
                        '<div class="col-sm-6 datepicker">' + dpGlobal.template + '</div>' +
